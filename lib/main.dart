@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dog_model.dart';
 import 'dog_list.dart';
+import 'new_dog_form.dart';
 
 void main(){
   runApp(new MyApp());
@@ -45,11 +46,31 @@ class HomePageState extends State<HomePage>{
       home: Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+          actions: [
+            IconButton(
+              onPressed: showNewDogForm,
+              icon: Icon(Icons.add),
+            )
+          ]
         ),
         body: Container(
           child: DogList(initialDoggos),
         )
       )
     );
+  }
+
+  Future showNewDogForm() async{
+    Dog newDog = await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context){
+          return AddDogFormPage();
+        }
+      )
+    );
+
+    if(newDog != null){
+      initialDoggos.add(newDog);
+    }
   }
 }

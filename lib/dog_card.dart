@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dog_detail_page.dart';
 import 'dog_model.dart';
 
 class DogCard extends StatefulWidget{
@@ -25,32 +26,38 @@ class DogCardState extends State<DogCard>{
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      child: Container(
-        height: 115.0,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              left: 50.0,
-              child: dogCard,
-            ),
-            Positioned(top: 7.5, child: dogImage),
-          ],
-        ),
+    return InkWell(
+      onTap: showDogDetailPage,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: Container(
+          height: 115.0,
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                left: 50.0,
+                child: dogCard,
+              ),
+              Positioned(top: 7.5, child: dogImage),
+            ],
+          ),
+        )
       )
     );
   }
 
   Widget get dogImage {
-    return Container(
-      width: 100.0,
-      height: 100.0,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(renderUrl ?? ''),
+    return Hero(
+      tag: dog,
+      child: Container(
+        width: 100.0,
+        height: 100.0,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(renderUrl ?? ''),
+          )
         )
       )
     );
@@ -103,6 +110,16 @@ class DogCardState extends State<DogCard>{
 
       print(renderUrl);
     });
+  }
+
+  showDogDetailPage(){
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context){
+          return DogDetailPage(dog);
+        }
+      )
+    );
   }
 
 }
