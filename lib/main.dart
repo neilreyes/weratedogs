@@ -26,25 +26,25 @@ class HomePage extends StatefulWidget{
 
 class HomePageState extends State<HomePage>{
   List<Dog> initialDoggos = []
-    ..add(new Dog('Churchill','Portland', 'Churcill is a very good girl. Yes: Fetch, loungin\'. No: Dogs who get on furniture.'))
-    ..add(new Dog('Rex', 'Seattle, WA, USA', 'Best in Show 1999'))
-    ..add(new Dog('Rod Stewart', 'Prague, CZ',
+    ..add(new Dog('Popcorn','Portland', 'Popcorn is a very good girl. Yes: Fetch, loungin\'. No: Dogs who get on furniture.'))
+    ..add(new Dog('Churchill', 'Seattle, WA, USA', 'Best in Show 1999'))
+    ..add(new Dog('Otto', 'Prague, CZ',
           'Star good boy on international snooze team.'))
-    ..add(new Dog('Herbert', 'Dallas, TX, USA', 'A Very Good Boy'))
-    ..add(new Dog('Burger','North Pole, Earth', 'Self proclaimed human lover.'));
+    ..add(new Dog('Duke', 'Dallas, TX, USA', 'A Very Good Boy'))
+    ..add(new Dog('Burger','North Pole, Earth', 'Self proclaimed human lover.'))
+    ..add(new Dog('Max','Portland', 'Self proclaimed human lover.'))
+    ..add(new Dog('Charlie','Seattle, WA, USA', 'Self proclaimed human lover.'))
+    ..add(new Dog('Bella','Pargue CZ', 'Self proclaimed human lover.'))
+    ..add(new Dog('Rex','Portland', 'Self proclaimed human lover.'));
 
   @override
   Widget build(BuildContext context) {
     
     return MaterialApp(
       title: widget.title,
-      theme: ThemeData(
-        brightness: Brightness.dark
-      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(widget.title, textDirection: TextDirection.ltr,),
-          backgroundColor: Colors.black87,
+          title: Text(widget.title),
         ),
         body: Container(
           child: DogList(initialDoggos),
