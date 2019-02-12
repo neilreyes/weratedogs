@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dog_model.dart';
-import 'dog_card.dart';
+import 'dog_list.dart';
 
 void main(){
   runApp(new MyApp());
@@ -47,7 +47,7 @@ class HomePageState extends State<HomePage>{
           backgroundColor: Colors.black87,
         ),
         body: Container(
-          child: DogCard(initialDoggos[0]),
+          child: DogList(initialDoggos),
         )
       )
     );

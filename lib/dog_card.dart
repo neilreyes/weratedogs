@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dog_mode.dart';
+import 'dog_model.dart';
 
 class DogCard extends StatefulWidget{
   final Dog dog;
