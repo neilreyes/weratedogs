@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dog_mode.dart';
 
 void main(){
   runApp(new MyApp());
@@ -23,7 +24,14 @@ class HomePage extends StatefulWidget{
 }
 
 class HomePageState extends State<HomePage>{
-
+  List<Dog> initialDoggos = []
+  ..add(new Dog('Churcill','Portland', 'Churcill is a very good girl. Yes: Fetch, loungin\'. No: Dogs who get on furniture.'))
+  ..add(new Dog('Rex', 'Seattle, WA, USA', 'Best in Show 1999'))
+  ..add(new Dog('Rod Stewart', 'Prague, CZ',
+        'Star good boy on international snooze team.'))
+  ..add(new Dog('Herbert', 'Dallas, TX, USA', 'A Very Good Boy'))
+  ..add(new Dog('Burger','North Pole, Earth', 'Self proclaimed human lover.'));
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
