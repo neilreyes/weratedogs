@@ -68,6 +68,7 @@ class HomePageState extends State<HomePage>{
         }
       )
     );
+    
 
     if(newDog != null){
       initialDoggos.add(newDog);
