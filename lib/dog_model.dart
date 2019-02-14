@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:convert';
+import 'dart:async';
 
 class Dog{
   final String name;
@@ -20,12 +21,13 @@ class Dog{
     HttpClient http = HttpClient();
 
     try{
-      var url = Uri.http('dog.ceo', '/api/breeds/image/random');
-      var request = await http.getUrl(url);
+      var uri = new Uri.http('dog.ceo', '/api/breeds/image/random');
+      var request = await http.getUrl(uri);
       var response = await request.close();
       var responseBody = await response.transform(utf8.decoder).join();
-
-      imageUrl = json.decode(responseBody)['message'];
+      var decoded = json.decode(responseBody);
+      var url = decoded['message'];
+      imageUrl = url;
 
     } catch (exception) {
       print(exception);

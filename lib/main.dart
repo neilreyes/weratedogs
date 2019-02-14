@@ -10,8 +10,10 @@ void main(){
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return new HomePage(
-      title:"We Rate Dogs"
+    return new MaterialApp(
+      home: HomePage(
+        title:"We Rate Dogs"
+      )
     );
   }
 }
@@ -41,9 +43,7 @@ class HomePageState extends State<HomePage>{
   @override
   Widget build(BuildContext context) {
     
-    return MaterialApp(
-      title: widget.title,
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
           actions: [
@@ -56,7 +56,6 @@ class HomePageState extends State<HomePage>{
         body: Container(
           child: DogList(initialDoggos),
         )
-      )
     );
   }
 
